@@ -20,7 +20,8 @@ import java.util.List;
 @EnableWebMvc
 @OpenAPIDefinition(
         info=@Info(title="Caso Hotel - UTP"),
-        servers = { @Server(url = "http://localhost:8085/api-hotel", description = "Local")})
+        servers = { @Server(url = "http://localhost:8085/api-hotel", description = "Local"),
+        @Server(url = "https://api-hotel-backend-lastest.onrender.com/api-hotel/", description = "Producción") })
 public class ApiSecurity implements WebMvcConfigurer {
     @Bean
     public RestTemplate restTemplate() {
