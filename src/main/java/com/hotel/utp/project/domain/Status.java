@@ -1,16 +1,17 @@
 package com.hotel.utp.project.domain;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-public class UserRole {
+public class Status {
     private Integer id;
     private String uuid;
-    private User user;
-    private Rol rol;
-    private Status status;
+    private String description;
+    private Integer active;
+
+    public Status(Integer id){
+        this.id = id;
+    }
 }

@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,16 +13,9 @@ public class User{
     private String uuid;
     private String documentNumber;
     private String fullName;
+    private String phone;
     private String email;
     private String password;
-
-    public User(Integer id, String uuid, String documentNumber, String fullName, String email, String password) {
-        this.id = id;
-        this.uuid = uuid;
-        this.documentNumber = documentNumber;
-        this.fullName = fullName;
-        this.email = email;
-        this.password = password;
-    }
+    private Status status;
 
 }

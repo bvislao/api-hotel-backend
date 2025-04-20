@@ -9,8 +9,8 @@ public class BaseDescription {
     private Integer id;
     private String uuid;
     private String description;
-    private Integer status;
+    private Integer active;
 
-    public BaseDescription(Integer id, String uuid, String description, Integer status) {
+    public BaseDescription(Integer id, String uuid, String description, Integer active) {
     }
 }
