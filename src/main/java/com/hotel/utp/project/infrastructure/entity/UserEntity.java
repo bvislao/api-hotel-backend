@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -26,5 +29,13 @@ public class UserEntity extends Auditable{
     @ManyToOne
     @JoinColumn(name = "status_id",referencedColumnName = "id")
     private StatusEntity status;
+
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE, CascadeType.DETACH})
+    @JoinTable(name = "users_role",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))
+    private Collection<RolEntity> roles = new HashSet<>();
 
 }

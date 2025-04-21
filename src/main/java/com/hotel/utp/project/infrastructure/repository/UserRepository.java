@@ -4,6 +4,7 @@ import com.hotel.utp.project.application.repository.IUserRepository;
 import com.hotel.utp.project.domain.Rol;
 import com.hotel.utp.project.domain.User;
 import com.hotel.utp.project.domain.UserRole;
+import com.hotel.utp.project.infrastructure.entity.RolEntity;
 import com.hotel.utp.project.infrastructure.entity.UserEntity;
 import com.hotel.utp.project.infrastructure.mapper.entity.IUserDboMapper;
 import com.hotel.utp.project.infrastructure.repository.jpa.IUserJpaRepository;
@@ -29,18 +30,31 @@ public class UserRepository implements IUserRepository {
         List<User> users = new ArrayList<>();
         for (UserEntity userEntity : userListEntity) {
             users.add(userDboMapper.toDomain(userEntity));
+            //set roles
+            List<Rol> roles = new ArrayList<>();
+            for (RolEntity rolEntity : userEntity.getRoles()) {
+                Rol rol = new Rol(rolEntity.getId(), rolEntity.getUuid(),rolEntity.getCode(), rolEntity.getDescription(),rolEntity.getActive());
+                roles.add(rol);
+            }
+            users.stream().filter(x->x.getDocumentNumber().equals(userEntity.getDocumentNumber())).forEach(
+                    user -> {
+                        user.setRoles(roles);
+                    }
+            );
+
+
         }
         return users;
     }
 
     @Override
     public User findByEmail(String email) {
-       return null;
+       return userDboMapper.toDomain(userJpaRepository.findByEmail(email));
     }
 
     @Override
     public User findByDocumentNumber(String documentNumber) {
-        return null;
+        return userDboMapper.toDomain(userJpaRepository.findByDocumentNumber(documentNumber));
     }
 
     @Override

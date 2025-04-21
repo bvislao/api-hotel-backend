@@ -143,7 +143,7 @@ VALUES (1, '6bb31ba7-7ee3-41ca-be1f-662baad66c49','ROOT', 'Super Administrador',
 
 
 INSERT  INTO `freedb_hotel-utp`.`users` (`id`, `uuid`, `document_number`, `full_name`, `phone`, `email`, `password`, `status_id`, `active`, `created_by`, `created_at`)
-VALUES (1,'b0f3a3d4-5c8e-4b7c-9f6d-5a2e0f3b8c1e','ROOT72854591','Super Administrador','99999999','99999999@gmail.com','ROOT72854591',1,1,'ADMIN',CURRENT_TIMESTAMP);
+VALUES (1,'b0f3a3d4-5c8e-4b7c-9f6d-5a2e0f3b8c1e','ROOT72854591','Super Administrador','99999999','99999999@gmail.com','$2a$04$xFLIJ/VvhNlssxdkVF2BceQhLa4ai5QJ2moqkBOgmyiP5r6/Cbj5S',1,1,'ADMIN',CURRENT_TIMESTAMP);
 
 
 INSERT  INTO `freedb_hotel-utp`.`users_role` (`id`, `uuid`, `user_id`, `rol_id`, `active`, `created_by`, `created_at`)

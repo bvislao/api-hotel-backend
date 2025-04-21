@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Rol extends BaseDescription {
-    public Rol(Integer id, String uuid, String description, Integer status) {
-        super(id, uuid, description, status);
+    public Rol(Integer id, String uuid,String code, String description, Integer status) {
+        super(id, uuid,code,description, status);
     }
 }

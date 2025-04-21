@@ -32,7 +32,7 @@ public class UserController {
     private final RequestService requestService;
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @Operation(summary = "Healhcheck")
+    @Operation(summary = "healthchecks")
     @GetMapping("ping")
     public ResponseEntity<?> ping() {
         return new ResponseEntity<>("Endpoint works!", HttpStatus.OK);
